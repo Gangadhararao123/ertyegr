@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>selecting</title>
+</head>>
+<body>
+
+    <select>
+        <option label="Fruit Selected">Apple</option>
+        <option label="Veggie Selected">Carrot</option>
+        <option label="Grain Selected">Rice</option>
+      </select>
+      
+
+<select id="mySelect" onchange="changeLabel()">
+  <option value="Fruits">Apple</option>
+  <option value="Vegetables">Carrot</option>
+  <option value="Grains">Rice</option>
+</select>
+
+<script>
+function changeLabel() {
+  var select = document.getElementById("mySelect");
+  var selectedValue = select.value;
+
+  var labelMap = {
+    Fruits: "Fruit Selected",
+    Vegetables: "Veggie Selected",
+    Grains: "Grain Selected"
+  };
+
+  // Create a new option with the display label
+  var newOption = new Option(labelMap[selectedValue], selectedValue, true, true);
+
+  // Remove all old options and insert new one temporarily
+  select.innerHTML = "";
+  select.add(newOption);
+}
+</script>
+
+</body>
+</html>
